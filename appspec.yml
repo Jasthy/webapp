@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: /target/webapp.war
+    destination: /opt/tomcat/webapps/
+hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+  ApplicationStart:
+    - location: scripts/start_application.sh 
+      timeout: 300
